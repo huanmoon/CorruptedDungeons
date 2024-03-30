@@ -1,31 +1,27 @@
-package net.achievevoid.corrupteddungeons.placeholders;
+package net.achievevoid.corrupteddungeons.utils;
 
-import com.avaje.ebean.validation.NotNull;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.achievevoid.corrupteddungeons.CorruptedDungeons;
 import org.bukkit.OfflinePlayer;
 
-public class EconomyPlaceHolder extends PlaceholderExpansion {
+public class PlaceHolders extends PlaceholderExpansion {
     private final CorruptedDungeons plugin;
 
-    public EconomyPlaceHolder(CorruptedDungeons plugin) {
+    public PlaceHolders(CorruptedDungeons plugin) {
         this.plugin = plugin;
     }
 
     @Override
-    @NotNull
     public String getAuthor() {
         return String.join(", ", plugin.getDescription().getAuthors()); //
     }
 
     @Override
-    @NotNull
     public String getIdentifier() {
         return "corrupteddungeons";
     }
 
     @Override
-    @NotNull
     public String getVersion() {
         return plugin.getDescription().getVersion();
     }
@@ -37,12 +33,8 @@ public class EconomyPlaceHolder extends PlaceholderExpansion {
 
     @Override
     public String onRequest(OfflinePlayer player, String params) {
-        if (params.equalsIgnoreCase("placeholder1")) {
-            return plugin.getConfig().getString("placeholders.placeholder1", "default1"); //
-        }
-
-        if (params.equalsIgnoreCase("placeholder2")) {
-            return plugin.getConfig().getString("placeholders.placeholder1", "default1"); //
+        if (params.equalsIgnoreCase("coins")) {
+            return Economy.coins.get(player.getUniqueId()).toString();
         }
 
         return null;
