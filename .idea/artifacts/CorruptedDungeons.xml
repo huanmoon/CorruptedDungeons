@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CorruptedDungeons">
+    <output-path>$PROJECT_DIR$/out/artifacts/CorruptedDungeons</output-path>
+    <root id="archive" name="CorruptedDungeons.jar">
+      <element id="module-output" name="CorruptedDungeons" />
+      <element id="library" level="project" name="spigot-1.8.8-R0.1-SNAPSHOT-latest" />
+    </root>
+  </artifact>
+</component>
